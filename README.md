@@ -12,4 +12,9 @@ Spring Boot使用時の CRUDが出来る Rest Api サンプルソース <br>
 - My Batis
 
 
-
+### 注意
+~~~
+ブランチの保護有効にしているので以下の制限があります
+・藤井以外はmasterに直プッシュできません。
+・masterマージ時は PR発行の上 1件approve必須となります。
+~~~
