@@ -1,0 +1,13 @@
+---
+spring:
+  # local用のdatasource設定
+  # 一旦h2に設定 localで別のDB使いたい場合は設定変えること
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: dbc:h2:mem:;
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true  
+    

@@ -1,0 +1,17 @@
+---
+spring:
+  application:
+    name: gradle-base
+  messages:
+    encoding: UTF-8
+  jackson:
+    time-zone: "Asia/Tokyo"
+
+logging:
+  level:
+    web: debug
+
+---
+spring:
+  profiles:
+    default: local
