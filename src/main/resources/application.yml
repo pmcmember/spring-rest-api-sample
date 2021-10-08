@@ -1,7 +1,7 @@
 ---
 spring:
   application:
-    name: gradle-base
+    name: spring-rest-api-sample
   messages:
     encoding: UTF-8
   jackson:
@@ -12,6 +12,7 @@ logging:
     web: debug
 
 ---
+# -Dspring.profiles.active未設定時の設定 誰でも起動できるようにh2をデフォルトにします
 spring:
   profiles:
     default: local
