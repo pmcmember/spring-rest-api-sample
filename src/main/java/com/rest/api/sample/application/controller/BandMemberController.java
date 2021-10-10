@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Slf4j
 @RestController
-@RequestMapping(value = "api/v1/band")
+@RequestMapping(value = "api/v1/band/")
 @RequiredArgsConstructor
 public class BandMemberController {
 
