@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 
 /**
  * プロジェクト全体のDI定義クラス
+ * '@Beanを付与したメソッドの戻り値は他のDI管理下クラスにて Autowiredなどでインスタンスの取得が可能
  */
 @Profile("!Test")
 @Configuration

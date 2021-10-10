@@ -4,6 +4,10 @@ import com.rest.api.sample.application.form.BandMemberForm;
 import com.rest.api.sample.domain.entity.BandMember;
 import org.apache.ibatis.annotations.Mapper;
 
+/**
+ * BandMemberテーブル Mapper IF
+ * xmlファイルに定義されたメソッド名と名称の一致するSQLの実行を行う
+ */
 @Mapper
 public interface BandMemberMapper {
 

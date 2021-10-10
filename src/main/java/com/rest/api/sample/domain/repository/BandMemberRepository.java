@@ -7,6 +7,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
+/**
+ * BandMemberテーブル リポジトリ
+ */
 @Slf4j
 @Repository
 @RequiredArgsConstructor

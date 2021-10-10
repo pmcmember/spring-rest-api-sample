@@ -63,7 +63,7 @@
     </update>
 
     <!-- データの物理削除 -->
-    <delete id="deleteMember" timeout="3">
+    <delete id="deleteByMemberId" timeout="3">
         delete
         from band_member
         where member_id = #{memberid}
