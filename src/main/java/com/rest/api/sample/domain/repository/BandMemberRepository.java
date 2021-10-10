@@ -1,5 +1,6 @@
 package com.rest.api.sample.domain.repository;
 
+import com.rest.api.sample.application.form.BandMemberForm;
 import com.rest.api.sample.domain.entity.BandMember;
 import com.rest.api.sample.domain.mapper.BandMemberMapper;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,18 @@ public class BandMemberRepository {
      * @param memberId : メンバーID
      * @return : メンバー情報
      */
-    public BandMember fetchByMemberId(final Long memberId){
+    public BandMember fetchByMemberId(final Long memberId) {
         return bandMemberMapper.fetchByMemberId(memberId);
     }
+
+    /**
+     * データの登録を行う
+     *
+     * @param bandMember : 登録データ
+     * @return : 登録件数
+     */
+    public int insertMember(final BandMemberForm bandMember) {
+        return bandMemberMapper.insertMember(bandMember);
+    }
+
 }

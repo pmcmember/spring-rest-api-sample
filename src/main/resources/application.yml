@@ -10,6 +10,8 @@ spring:
 logging:
   level:
     com.rest.api.sample.domain.mapper: debug
+    com.rest.api.sample.domain.repository: debug
+    org.apache.ibatis: debug
     web: debug
 
 mybatis:

@@ -17,22 +17,35 @@
 
     <!-- データの取得 -->
     <select id="fetchByMemberId" resultMap="bandMemberResult">
-        select
-            member_id,
-            last_name,
-            first_name,
-            age,
-            part,
-            created_at,
-            create_user,
-            update_at,
-            update_user,
-            delete_flg
-        from
-            band_member
-        where
-            member_id = #{memberid}
-          and
-            delete_flg = '0'
+        select member_id,
+               last_name,
+               first_name,
+               age,
+               part,
+               created_at,
+               create_user,
+               update_at,
+               update_user,
+               delete_flg
+        from band_member
+        where member_id = #{memberid}
+          and delete_flg = '0'
     </select>
+
+    <!-- データの登録 -->
+    <insert id="insertMember">
+        insert into band_member
+        (last_name,
+         first_name,
+         age,
+         part,
+         create_user,
+         update_user)
+        values (#{lastName},
+                #{firstName},
+                #{age},
+                #{part},
+                'spring-rest-api-sample',
+                'spring-rest-api-sample')
+    </insert>
 </mapper>
