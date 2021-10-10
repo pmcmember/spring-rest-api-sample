@@ -13,13 +13,13 @@ create table band_member
     delete_flg  char(1)      default '0'               not null
 );
 
-comment on column band_member.member_id IS 'メンバーID';
-comment on column band_member.last_name IS '苗字';
-comment on column band_member.first_name IS '名前';
-comment on column band_member.age IS '年齢';
-comment on column band_member.part IS '担当楽器';
-comment on column band_member.created_at IS 'レコード作成日';
-comment on column band_member.create_user IS 'レコード作成者';
-comment on column band_member.update_at IS 'レコード更新日';
-comment on column band_member.update_user IS '最終更新者';
-comment on column band_member.delete_flg IS '論理削除';
+comment on column band_member.member_id is 'メンバーid';
+comment on column band_member.last_name is '苗字';
+comment on column band_member.first_name is '名前';
+comment on column band_member.age is '年齢';
+comment on column band_member.part is '担当楽器';
+comment on column band_member.created_at is 'レコード作成日';
+comment on column band_member.create_user is 'レコード作成者';
+comment on column band_member.update_at is 'レコード更新日';
+comment on column band_member.update_user is '最終更新者';
+comment on column band_member.delete_flg is '論理削除';

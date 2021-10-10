@@ -33,7 +33,7 @@
     </select>
 
     <!-- データの登録 -->
-    <insert id="insertMember">
+    <insert id="insertMember" timeout="3">
         insert into band_member
         (last_name,
          first_name,
@@ -48,4 +48,25 @@
                 'spring-rest-api-sample',
                 'spring-rest-api-sample')
     </insert>
+
+    <!-- データの更新 -->
+    <update id="updateMember" timeout="3">
+        update
+            band_member
+        set last_name   = #{lastName},
+            first_name  = #{firstName},
+            age         = #{age},
+            part        = #{part},
+            update_at   = current_timestamp,
+            update_user = 'spring-rest-api-sample'
+        where member_id = #{memberId}
+    </update>
+
+    <!-- データの物理削除 -->
+    <delete id="deleteMember" timeout="3">
+        delete
+        from band_member
+        where member_id = #{memberid}
+    </delete>
+
 </mapper>
