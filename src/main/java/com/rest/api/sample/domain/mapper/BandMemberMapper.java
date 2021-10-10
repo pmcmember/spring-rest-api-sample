@@ -22,4 +22,21 @@ public interface BandMemberMapper {
      * @return : 登録件数
      */
     int insertMember(final BandMemberForm bandMember);
+
+    /**
+     * データの更新を行う
+     *
+     * @param bandMember : 更新データ
+     * @return : 更新件数
+     */
+    int updateMember(final BandMemberForm bandMember);
+
+    /**
+     * データの削除を行う
+     *
+     * @param memberId : メンバーID
+     * @return : 削除件数
+     */
+    int deleteByMemberId(final Long memberId);
+
 }

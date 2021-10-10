@@ -18,7 +18,7 @@ public class BandMemberService {
     private final BandMemberRepository bandMemberRepository;
 
     /**
-     * BandMemberテーブルから データの取得を行う
+     * BandMemberテーブル データの取得を行う
      *
      * @param memberId : メンバーID
      * @return : 取得結果
@@ -31,8 +31,8 @@ public class BandMemberService {
     }
 
     /**
-     * BandMemberテーブルへ データの登録を行う
-     *s
+     * BandMemberテーブル データの登録を行う
+     *
      * @param bandMember : 登録データ
      * @return : 登録件数
      */
@@ -41,5 +41,31 @@ public class BandMemberService {
         int insertCount = bandMemberRepository.insertMember(bandMember);
         log.info("登録件数 : {}", insertCount);
         return insertCount;
+    }
+
+    /**
+     * BandMemberテーブル データの更新を行う
+     *
+     * @param bandMember : 登録データ
+     * @return : 更新件数
+     */
+    public int updateMember(final BandMemberForm bandMember) {
+        log.info("メンバー情報を更新します。");
+        int updateCount = bandMemberRepository.updateMember(bandMember);
+        log.info("更新件数 : {}", updateCount);
+        return updateCount;
+    }
+
+    /**
+     * BandMemberテーブル データの削除を行う
+     *
+     * @param memberId : メンバーID
+     * @return : 削除件数
+     */
+    public int deleteByMemberId(final Long memberId) {
+        log.info("メンバー情報を削除します。");
+        final int deleteCount = bandMemberRepository.deleteByMemberId(memberId);
+        log.info("削除件数 : {}", deleteCount);
+        return deleteCount;
     }
 }

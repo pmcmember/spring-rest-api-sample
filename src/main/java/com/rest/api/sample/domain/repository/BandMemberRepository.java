@@ -34,4 +34,23 @@ public class BandMemberRepository {
         return bandMemberMapper.insertMember(bandMember);
     }
 
+    /**
+     * データの更新を行う
+     *
+     * @param bandMember : 更新データ
+     * @return : 更新件数
+     */
+    public int updateMember(final BandMemberForm bandMember) {
+        return bandMemberMapper.updateMember(bandMember);
+    }
+
+    /**
+     * データの削除を行う
+     *
+     * @param memberId : メンバーID
+     * @return : 削除件数
+     */
+    public int deleteByMemberId(final Long memberId) {
+        return bandMemberMapper.deleteByMemberId(memberId);
+    }
 }
