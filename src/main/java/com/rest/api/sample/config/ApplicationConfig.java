@@ -5,6 +5,8 @@ import java.time.ZoneId;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 
 /**
  * プロジェクト全体のDI定義クラス
@@ -24,5 +26,17 @@ public class ApplicationConfig {
     @Bean(name = "clock")
     public Clock clock() {
         return Clock.system(ZoneId.of(JP_TIME_ZONE));
+    }
+
+    /**
+     * Json形式のhttpヘッダーを作成する
+     *
+     * @return : httpHeaders
+     */
+    @Bean("restJsonHeader")
+    public HttpHeaders httpHeaders() {
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+        return httpHeaders;
     }
 }

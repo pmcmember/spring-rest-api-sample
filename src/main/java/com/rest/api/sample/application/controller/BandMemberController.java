@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class BandMemberController {
 
+    private final HttpHeaders restJsonHeaders;
     private final BandMemberService bandMemberService;
 
     /**
@@ -33,10 +33,10 @@ public class BandMemberController {
      * @return レスポンス
      */
     @GetMapping(value = "member/{id}")
-    public ResponseEntity<BandMember> get(@PathVariable("id") Long id){
-        log.info("GET Restリクエストを受信しました。　ID : {}",id);
-        HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
-        return new ResponseEntity<>(bandMemberService.fetchMemberByMemberId(id),httpHeaders, HttpStatus.OK);
+    public ResponseEntity<BandMember> get(@PathVariable("id") Long id) {
+        log.info("GET Restリクエストを受信しました。　ID : {}", id);
+        return new ResponseEntity<>(
+                bandMemberService.fetchMemberByMemberId(id), restJsonHeaders, HttpStatus.OK
+        );
     }
 }
