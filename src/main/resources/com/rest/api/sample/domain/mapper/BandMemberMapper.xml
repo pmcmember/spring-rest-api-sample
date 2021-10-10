@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.batch.additional.age.infrastructure.db.mapper.AccountMapper">
+
+    <resultMap id="bandMemberResult" type="com.rest.api.sample.domain.entity.BandMember">
+        <result property="memberId" column="member_id" jdbcType="integer"/>
+        <result property="lastName" column="last_name" jdbcType="varchar"/>
+        <result property="firstName" column="first_name" jdbcType="varchar"/>
+        <result property="age" column="age" jdbcType="integer"/>
+        <result property="part" column="part" jdbcType="varchar"/>
+        <result property="createdAt" column="created_at" jdbcType="date"/>
+        <result property="createUser" column="create_user" jdbcType="varchar"/>
+        <result property="updateAt" column="update_at" jdbcType="date"/>
+        <result property="updateUser" column="update_user" jdbcType="varchar"/>
+        <result property="deleteFlg" column="delete_flg" jdbcType="char"/>
+    </resultMap>
+
+    <!-- データの取得 -->
+    <select id="fetchByMemberId" resultMap="bandMemberResult">
+        select
+            member_id,
+            last_name,
+            first_name,
+            age,
+            part,
+            created_at,
+            create_user,
+            update_at,
+            update_user,
+            delete_flg
+        from
+            band_member
+        where
+            member_id = #{memberid}
+          and
+            delete_flg = '0'
+    </select>
+</mapper>
