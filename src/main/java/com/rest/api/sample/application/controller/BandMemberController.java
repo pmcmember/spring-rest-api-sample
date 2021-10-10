@@ -28,8 +28,6 @@ public class BandMemberController {
 
     /**
      * GET データの取得
-     * 以下のような形式で リクエストを送信 {id} の箇所には任意の数字を設定(動的に採番される)
-     * GET http://localhost:8080/api/v1/samples/{id}
      *
      * @param id : 取得対象データのID
      * @return レスポンス
