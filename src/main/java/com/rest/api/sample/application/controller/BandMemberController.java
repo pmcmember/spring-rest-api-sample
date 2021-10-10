@@ -1,5 +1,7 @@
-package com.rest.api.sample.controller;
+package com.rest.api.sample.application.controller;
 
+import com.rest.api.sample.application.service.BandMemberService;
+import com.rest.api.sample.domain.entity.BandMember;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
@@ -12,14 +14,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Sample RestController
+ * Sampleソース
+ * BandMemberテーブル操作用のRestController
  * curlでの例はREADME.md参照
  */
 @Slf4j
 @RestController
-@RequestMapping(value = "api/v1/")
+@RequestMapping(value = "api/v1/band")
 @RequiredArgsConstructor
-public class SampleController {
+public class BandMemberController {
+
+    private final BandMemberService bandMemberService;
 
     /**
      * GET データの取得
@@ -29,14 +34,11 @@ public class SampleController {
      * @param id : 取得対象データのID
      * @return レスポンス
      */
-    @GetMapping(value = "samples/{id}")
-    public ResponseEntity<?> get(@PathVariable("id") Long id){
+    @GetMapping(value = "member/{id}")
+    public ResponseEntity<BandMember> get(@PathVariable("id") Long id){
         log.info("GET Restリクエストを受信しました。　ID : {}",id);
-
-        int mockResponseCode = 200;
-
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setContentType(MediaType.APPLICATION_JSON);
-        return new ResponseEntity<>(mockResponseCode,httpHeaders, HttpStatus.OK);
+        return new ResponseEntity<>(bandMemberService.fetchMemberByMemberId(id),httpHeaders, HttpStatus.OK);
     }
 }

@@ -7,7 +7,7 @@ Spring Boot使用時の CRUDが出来る Rest Api サンプルソース<br>
 
 ~~~
 ■ GET
-curl -X GET http://localhost:8080/api/v1/samples/{id}
+curl -X GET http://localhost:8080/api/v1/band/member/{id}
 
 ~~~
 

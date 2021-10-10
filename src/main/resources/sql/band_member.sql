@@ -6,9 +6,9 @@ create table band_member
     first_name  varchar(20)                       not null,
     age         integer,
     part        varchar(20),
-    created_at  date    default current_timestamp not null,
+    created_at  timestamp(0)   default current_timestamp not null,
     create_user varchar(50),
-    update_at   date    default current_timestamp not null,
+    update_at   timestamp(0)    default current_timestamp not null,
     update_user varchar(50)                       not null,
     delete_flg  char(1) default '0'               not null
 );
